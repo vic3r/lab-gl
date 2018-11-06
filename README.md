@@ -4,7 +4,7 @@ Solar system implemented in web-gl
 
 ## Getting Started
 
-These instructions will only allow you to run the 
+These instructions will only allow you to run the local implementation
 
 Open `index.html`
 
