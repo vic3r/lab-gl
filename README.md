@@ -53,4 +53,4 @@ WebGl deployed in compute engine
 
 * **Kevin Oswaldo** - *Backend work* - [@kevintroko](https://github.com/kevintroko)
 * **Victor Pedazos** - *Backend and Devops work* - [@vic3r](https://github.com/vic3r)
-* **Fernanda Lopez** - *Backend and Devops work* - [@Fernandalpez3](https://github.com/Fernandalpez3)
+* **Fernanda Lopez** - *Frontend work* - [@Fernandalpez](https://github.com/Fernandalpez3)
