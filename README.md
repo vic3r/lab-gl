@@ -15,7 +15,7 @@ Node => 8.11
 Node be can installed using NVM running 
 `nvm install 8.11`
 
-```
+```Kevin Pedazos
 yarn
 ```
 
@@ -51,4 +51,6 @@ WebGl deployed in compute engine
 
 ## Authors
 
-* **Kevin Pedazos** - *Initial work* - [@kevintroko](https://github.com/kevintroko)
+* **Kevin Oswaldo** - *Backend work* - [@kevintroko](https://github.com/kevintroko)
+* **Victor Pedazos** - *Backend and Devops work* - [@vic3r](https://github.com/vic3r)
+* **Fernanda Lopez** - *Backend and Devops work* - [@Fernandalpez3](https://github.com/Fernandalpez3)
