@@ -1,0 +1,98 @@
+
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+canvas {
+ height: 350px;
+ width: 100%;
+ display: block;
+ opacity:0.4;
+ filter:alpha(opacity=40);
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ padding-bottom: 20px;
+  }
+  
+  body {
+    background-color: #000000;
+    background-image: url('http://www.yunlinplay.tw/gimg/f/30/308614_astronaut-wallpaper.jpg');
+    
+    background-size: cover;
+    font-family: 'Fjalla One', sans-serif;
+    height: 100%;
+
+  
+
+  }
+
+  svg {
+    display: block;
+    font: 10.5em 'Montserrat';
+    width: 960px;
+    height: 300px;
+    margin: 0 auto;
+}
+
+.text-copy {
+    fill: none;
+    stroke: white;
+    stroke-dasharray: 6% 29%;
+    stroke-width: 5px;
+    stroke-dashoffset: 0%;
+    animation: stroke-offset 5.5s infinite linear;
+}
+
+.text-copy:nth-child(1){
+	stroke: #3c406b;
+	animation-delay: -1;
+}
+
+.text-copy:nth-child(2){
+	stroke: #556383;
+	animation-delay: -2s;
+}
+
+.text-copy:nth-child(3){
+	stroke: #618ab0;
+	animation-delay: -3s;
+}
+
+.text-copy:nth-child(4){
+	stroke: #719de7;
+	animation-delay: -4s;
+}
+
+.text-copy:nth-child(5){
+	stroke: #d5ddec;
+	animation-delay: -5s;
+}
+
+@keyframes stroke-offset{
+	100% {stroke-dashoffset: -35%;}
+}
+
+.button {
+    padding-right: 40%;
+    background: none;
+    border: none;
+}
+
+.btn {
+    flex: 1 1 auto;
+    padding: 15px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 100% auto;
+    color: white;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    text-decoration: none;
+   }
+   
+  .btn:hover {
+    background-image: linear-gradient(to right, #304558 0%, #304558 51%, #304558 100%);
+  }
+
+  .btn-4 {
+    background-image: linear-gradient(to right, #304558 0%, #719de7 51%, #a1c4fd 100%);
+  }
