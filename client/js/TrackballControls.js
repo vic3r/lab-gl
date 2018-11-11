@@ -513,7 +513,6 @@ THREE.TrackballControls = function ( object, domElement ) {
 		}
 
 		_state = STATE.NONE;
-
 	}
 
 	this.domElement.addEventListener( 'contextmenu', function ( event ) { event.preventDefault(); }, false );
