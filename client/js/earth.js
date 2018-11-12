@@ -16,6 +16,7 @@
 		segments = 32,
 		rotation = 6;
 
+		// Saturn ring
 		var geometry = new THREE.RingGeometry( 1, 5, 32 );
 		var material = new THREE.MeshBasicMaterial( {
 			color: 0xffff00,
@@ -28,6 +29,7 @@
 		} );
 		var mesh = new THREE.Mesh( geometry, material );
 
+		// Stars
 		var radiusGalaxy = 300;
 		// Mercury real size 0.4
 		var radiusMercury = .6;
