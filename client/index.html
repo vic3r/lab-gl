@@ -4,15 +4,59 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Threejs Solar System</title>
+	<script src="jquery-3.3.1.min.js"></script>
 	<style>
 		body { margin: 0; overflow: hidden; background-color: #000; }
 		.tm  { position: absolute; top: 10px; right: 10px; }
 		.webgl-error { font: 15px/30px monospace; text-align: center; color: #fff; margin: 50px; }
 		.webgl-error a { color: #fff; }
+
+		header {
+			position: fixed;
+			top: 0;
+			left:0;
+			margin-left: 20px;
+			margin-top: 20px;
+			background-color: #101010;
+			width: 350px;
+			padding-left: 10px;
+			font-family: Helvetica;
+		}
+
+		#planet-name {
+			color: white;
+			text-align: center;
+
+		}
+
+		body {
+			color: white;
+		}
+
+		.flex-container {
+			  display: flex;
+				flex-direction: column;
+		}
     </style>
 </head>
 <body>
 	<div id="webgl"></div>
+	<header>
+	  <h1 id="planet-name">Tierra</h1>
+		<div class="flex-container">
+			<p id="texto"><b>Diametro(km): </b><span></span></p>
+			<p id="texto"><b>Tamaño: </b><span></span> x veces la tierra</p>
+			<p id="texto"><b>Masa: </b><span></span> x veces la tierra</p>
+			<p id="texto"><b>Gravedad: </b><span></span> x veces la tierra</p>
+			<p id="texto"><b>Numero de lunas: </b><span></span></p>
+			<p id="texto"><b>Tipo de estrella: </b><span></span></p>
+			<p id="texto"><b>Fases: </b><span></span></p>
+			<p id="texto"><b>Orden desde sol: </b><span></span></p>
+			<p id="texto"><b>Distancia desde el sol (km): </b><span></span></p>
+			<p id="texto"><b>Distancia desde la tierra (km): </b><span></span></p>
+
+		</div>
+	</header>
 	<script src="js/three.min.js"></script>
 	<script src="js/Detector.js"></script>
 	<script src="js/TrackballControls.js"></script>
