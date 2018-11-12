@@ -1,10 +1,5 @@
 // Code by Kevin Cabrera and Victor Garcia
 // Architecture based on the Bjorn Sandvik - thematicmapping.org
-// $(document).ready(function(){
-// 	$("#btn1").click(function(){
-// 			alert("Text");
-// 	});
-// });
 
 (function () {
 	let webglEl = document.getElementById('webgl');
@@ -43,29 +38,6 @@
 
 	scene.add(new THREE.AmbientLight(0x333333));
 
-	// const loader = new THREE.FontLoader();
-	// const font = loader.load('fonts/helvetiker_bold.typeface.json');
-
-	// let xMid, text;
-	// const color = 0x006699;
-	// let matLite = new THREE.MeshBasicMaterial({
-	// 	color: color,
-	// 	transparent: true,
-	// 	opacity: 0.4,
-	// 	side: THREE.DoubleSide
-	// });
-	// setTimeout(()=> {
-	// 	let message = "Three.js\nSimple text.";
-	// 	let shapes = font.generateShapes( message, 100 );
-	// 	let geometry = new THREE.ShapeBufferGeometry( shapes );
-	// 	geometry.computeBoundingBox();
-	// 	xMid = - 0.5 * (geometry.boundingBox.max.x-geometry.boundingBox.min.x );
-
-	// 	geometry.translate(xMid, 0, 0);
-	// 	text = new THREE.Mesh( geometry, matLite );
-	// 	text.position.z = -2;
-	// 	scene.add(text);
-	// 	});
 	let light = new THREE.DirectionalLight(0xffffff, 1);
 	light.position.set(-100,0,0);
 	scene.add(light);
@@ -190,13 +162,14 @@
 		controls.update();
 		sphere.rotation.y  += 0.0005;
 		clouds.rotation.y  += 0.0005;
-		mercury.rotation.y += 0.0005;
-		venus.rotation.y   += 0.0005;
-		mars.rotation.y    += 0.0005;
-		jupiter.rotation.y += 0.0005;
-		uranus.rotation.y  += 0.0005;
-		neptune.rotation.y += 0.0005;
-		saturn.rotation.y  += 0.0005;
+		mercury.rotation.y += 0.0000852;
+		venus.rotation.y   -= 0.000005;
+		mars.rotation.y    += 0.000513889;
+		jupiter.rotation.y += 0.000487805;
+		uranus.rotation.y  += 0.00120919;
+		neptune.rotation.y -= 0.00112605;
+		saturn.rotation.y  += 0.00069606;
+		sun.rotation.y     += 0.000744849;
 		requestAnimationFrame(render);
 		renderer.render(scene, camera);
 	}
@@ -243,8 +216,7 @@
 			new THREE.MeshPhongMaterial({
 				map      :     THREE.ImageUtils.loadTexture('images/marsmap.jpg'),
 				bumpMap  :     THREE.ImageUtils.loadTexture('images/marsbump.jpg'),
-				bumpScale:    0.005,
-				specular :    new THREE.Color('red')
+				bumpScale:    0.005
 			})
 		);
 	}
@@ -262,8 +234,8 @@
 		return new THREE.Mesh(
 			new THREE.SphereGeometry(radiusUranus, segments, segments),
 			new THREE.MeshPhongMaterial({
-				map:         THREE.ImageUtils.loadTexture('images/uranusmap.jpg'),
-				bumpMap:     THREE.ImageUtils.loadTexture('images/uranusbump.jpg'),
+				map			:    THREE.ImageUtils.loadTexture('images/uranusmap.jpg'),
+				bumpMap	:    THREE.ImageUtils.loadTexture('images/uranusbump.jpg'),
 				bumpScale:   0.005
 			})
 		);
@@ -282,8 +254,8 @@
 		return new THREE.Mesh(
 			new THREE.SphereGeometry(radiusNeptune, segments, segments),
 			new THREE.MeshPhongMaterial({
-				map:         THREE.ImageUtils.loadTexture('images/neptunemap.jpg'),
-				bumpMap:     THREE.ImageUtils.loadTexture('images/neptunebump.jpg'),
+				map			:    THREE.ImageUtils.loadTexture('images/neptunemap.jpg'),
+				bumpMap	:    THREE.ImageUtils.loadTexture('images/neptunebump.jpg'),
 				bumpScale:   0.005
 			})
 		);
@@ -293,7 +265,7 @@
 		return new THREE.Mesh(
 			new THREE.SphereGeometry(radius, segments, segments),
 			new THREE.MeshBasicMaterial({
-				map:         THREE.ImageUtils.loadTexture('images/sunmap.jpg'),
+				map			 :   THREE.ImageUtils.loadTexture('images/sunmap.jpg'),
 				bumpScale:   0.7
 			})
 		);
@@ -303,7 +275,7 @@
 		return new THREE.Mesh(
 			new THREE.SphereGeometry(radius + 0.003, segments, segments),
 			new THREE.MeshPhongMaterial({
-				map: THREE.ImageUtils.loadTexture('images/fair_clouds_4k.png'),
+				map				 : THREE.ImageUtils.loadTexture('images/fair_clouds_4k.png'),
 				transparent: true
 			})
 		);
@@ -313,8 +285,8 @@
 		return new THREE.Mesh(
 			new THREE.SphereGeometry(radiusGalaxy, segments, segments),
 			new THREE.MeshBasicMaterial({
-				map:  THREE.ImageUtils.loadTexture('images/galaxy_starfield.png'),
-				side: THREE.BackSide
+				map :  THREE.ImageUtils.loadTexture('images/galaxy_starfield.png'),
+				side:  THREE.BackSide
 			})
 		);
 	}
