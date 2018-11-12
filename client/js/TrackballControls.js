@@ -1,6 +1,3 @@
-/**
- * @author Eberhard Graether / http://egraether.com/
- */
 
 THREE.TrackballControls = function ( object, domElement ) {
 
@@ -9,8 +6,6 @@ THREE.TrackballControls = function ( object, domElement ) {
 
 	this.object = object;
 	this.domElement = ( domElement !== undefined ) ? domElement : document;
-
-	// API
 
 	this.enabled = true;
 
