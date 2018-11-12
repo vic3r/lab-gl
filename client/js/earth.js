@@ -16,7 +16,19 @@
 		segments = 32,
 		rotation = 6;
 
-		var radiusGalaxy = 190;
+		var geometry = new THREE.RingGeometry( 1, 5, 32 );
+		var material = new THREE.MeshBasicMaterial( {
+			color: 0xffff00,
+			side: THREE.DoubleSide,
+			map:         THREE.ImageUtils.loadTexture('images/2_no_clouds_4k.jpg'),
+			bumpMap:     THREE.ImageUtils.loadTexture('images/elev_bump_4k.jpg'),
+			bumpScale:   0.005,
+			specularMap: THREE.ImageUtils.loadTexture('images/water_4k.png'),
+			specular:    new THREE.Color('grey')
+		} );
+		var mesh = new THREE.Mesh( geometry, material );
+
+		var radiusGalaxy = 300;
 		// Mercury real size 0.4
 		var radiusMercury = .6;
 		var radiusVenus = .948;
@@ -26,9 +38,11 @@
 		var radiusUranus = 4;
 		var radiusNeptune = 4;
 		// var radiusSun = 109;
-		var radiusSun = 59;
+		var radiusSun = 109;
 
 	var scene = new THREE.Scene();
+
+	scene.add( mesh );
 
 	var camera = new THREE.PerspectiveCamera(45, width / height, 0.01, 1000);
 	camera.position.z = 10.5;
@@ -44,27 +58,28 @@
 
 	//SUN
 	var sun = createSun(radiusSun, segments);
-	sun.translateX(-100);
+	sun.translateX(-200);
 	scene.add(sun);
 
 	var mercury = createMercury(radiusMercury, segments);
 	mercury.rotation.y = rotation;
-	mercury.translateX(10);
+	mercury.translateX(-70);
 	scene.add(mercury);
 
 	var venus = createVenus(radiusVenus, segments);
 	venus.rotation.y = rotation;
-	venus.translateX(10);
+	// venus.translateZ(-1);
+	venus.translateX(-30);
 	scene.add(venus);
 
 	var sphere = createSphere(radius, segments);
 	sphere.rotation.y = rotation;
-	venus.translateX(30);
+	venus.translateX(0);
 	scene.add(sphere);
 
 	var mars = createMars(radiusMars, segments);
 	mars.rotation.y = rotation;
-	mars.translateX(40);
+	mars.translateX(20);
 	scene.add(mars);
 
 	var jupiter = createJupiter(radiusJupiter, segments);
