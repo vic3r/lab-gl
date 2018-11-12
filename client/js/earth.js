@@ -403,6 +403,7 @@
 			xorder.innerHTML=1;
 			xsundis.innerHTML=1;
 			xearthdis.innerHTML=1;
+
 		}
 
 		function marsClickHandler() {
