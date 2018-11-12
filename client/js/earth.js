@@ -1,4 +1,6 @@
-// Created by Bjorn Sandvik - thematicmapping.org
+// Code by Kevin Cabrera and Victor Garcia
+// Architecture based on the Bjorn Sandvik - thematicmapping.org
+
 (function () {
 
 	var webglEl = document.getElementById('webgl');
@@ -8,25 +10,24 @@
 		return;
 	}
 
-	 var width  = window.innerWidth,
+	 	var width  = window.innerWidth,
 		height = window.innerHeight;
 
 	// Earth params
-	var radius   = 1,
+		var radius   = 1,
 		segments = 32,
 		rotation = 6;
 
-		var radiusGalaxy = 190;
-		// Mercury real size 0.4
-		var radiusMercury = .6;
+		// Stars
+		var radiusGalaxy = 300;
+		var radiusMercury = .4;
 		var radiusVenus = .948;
 		var radiusMars = .53;
 		var radiusJupiter = 11;
 		var radiusSaturn = 9;
 		var radiusUranus = 4;
 		var radiusNeptune = 4;
-		// var radiusSun = 109;
-		var radiusSun = 59;
+		var radiusSun = 109;
 
 	var scene = new THREE.Scene();
 
@@ -44,53 +45,92 @@
 
 	//SUN
 	var sun = createSun(radiusSun, segments);
-	sun.translateX(-100);
+	sun.translateX(-200);
+	sun.translateY(-10);
 	scene.add(sun);
 
+ // 'FREDDIE' MERCURY
 	var mercury = createMercury(radiusMercury, segments);
 	mercury.rotation.y = rotation;
-	mercury.translateX(10);
+	mercury.translateX(-48.569);
 	scene.add(mercury);
 
+	// VENUS
 	var venus = createVenus(radiusVenus, segments);
 	venus.rotation.y = rotation;
-	venus.translateX(10);
+	venus.translateX(-30.112);
 	scene.add(venus);
 
+	// EARTH
 	var sphere = createSphere(radius, segments);
 	sphere.rotation.y = rotation;
-	venus.translateX(30);
+	sphere.translateX(0);
 	scene.add(sphere);
 
+	// MARS
 	var mars = createMars(radiusMars, segments);
 	mars.rotation.y = rotation;
-	mars.translateX(40);
+	mars.translateX(21.87);
 	scene.add(mars);
 
+	// JUPITER
 	var jupiter = createJupiter(radiusJupiter, segments);
 	jupiter.rotation.y = rotation;
-	jupiter.translateX(50);
+	jupiter.translateX(100);
 	scene.add(jupiter);
 
+	// Saturn ring
+	var saturnRing = new THREE.RingGeometry(11.5, 15.5, 24 );
+	var material = new THREE.MeshBasicMaterial( {
+		side: THREE.DoubleSide,
+		map:         THREE.ImageUtils.loadTexture('images/saturnringcolor.jpg'),
+		bumpMap:     THREE.ImageUtils.loadTexture('images/saturnringpattern.gif'),
+		bumpScale:   0.005
+	} );
+
+	var saturnRingMesh = new THREE.Mesh( saturnRing, material );
+	saturnRingMesh.rotation.x=(1.37); // angle rotation in radians
+	saturnRingMesh.translateX(142);
+	saturnRingMesh.translateZ(7);
+	saturnRingMesh.translateY(41.5);
+	scene.add( saturnRingMesh );
+
+	// SATURN
 	var saturn = createSaturn(radiusSaturn, segments);
 	saturn.rotation.y = rotation;
-	saturn.translateX(70);
+	saturn.translateX(149);
 	scene.add(saturn);
 
+	// URANUS
 	var uranus = createUranus(radiusUranus, segments);
 	uranus.rotation.y = rotation;
-	uranus.translateX(90);
+	uranus.translateX(180);
 	scene.add(uranus);
 
+	// Uranus ring
+	var uranusRing = new THREE.RingGeometry(5.3, 5.5, 24 );
+	var material = new THREE.MeshBasicMaterial( {
+		side:        THREE.DoubleSide,
+		map:         THREE.ImageUtils.loadTexture('images/uranusringcolour.jpg'),
+		bumpMap:     THREE.ImageUtils.loadTexture('images/uranusringstrans.gif'),
+	} );
+	var uranusRingMesh = new THREE.Mesh( uranusRing, material );
+	uranusRingMesh.translateX(172.7);
+	uranusRingMesh.translateZ(50);
+	scene.add(uranusRingMesh);
+
+	// NEPTUNE
 	var neptune = createNeptune(radiusNeptune, segments);
 	neptune.rotation.y = rotation;
-	neptune.translateX(100);
+	neptune.translateX(210);
 	scene.add(neptune);
 
+	// CLOUDS EARTH
   var clouds = createClouds(radius, segments);
 	clouds.rotation.y = rotation;
 	scene.add(clouds)
 
+	// STARS
 	var stars = createStars(90, 64);
 	scene.add(stars);
 
@@ -123,7 +163,7 @@
 				bumpMap:     THREE.ImageUtils.loadTexture('images/elev_bump_4k.jpg'),
 				bumpScale:   0.005,
 				specularMap: THREE.ImageUtils.loadTexture('images/water_4k.png'),
-				specular:    new THREE.Color('grey')
+				// specular:    new THREE.Color('grey')
 			})
 		);
 	}
@@ -168,8 +208,7 @@
 		return new THREE.Mesh(
 			new THREE.SphereGeometry(radiusJupiter, segments, segments),
 			new THREE.MeshPhongMaterial({
-				map:         THREE.ImageUtils.loadTexture('images/jupitermap.jpg'),
-				specular:    new THREE.Color('orange')
+				map: THREE.ImageUtils.loadTexture('images/jupitermap.jpg')
 			})
 		);
 	}
@@ -180,8 +219,7 @@
 			new THREE.MeshPhongMaterial({
 				map:         THREE.ImageUtils.loadTexture('images/uranusmap.jpg'),
 				bumpMap:     THREE.ImageUtils.loadTexture('images/uranusbump.jpg'),
-				bumpScale:   0.005,
-				specular:    new THREE.Color('orange')
+				bumpScale:   0.005
 			})
 		);
 	}
@@ -190,8 +228,7 @@
 		return new THREE.Mesh(
 			new THREE.SphereGeometry(radiusSaturn, segments, segments),
 			new THREE.MeshPhongMaterial({
-				map:         THREE.ImageUtils.loadTexture('images/saturnmap.jpg'),
-				specular:    new THREE.Color('orange')
+				map: THREE.ImageUtils.loadTexture('images/saturnmap.jpg')
 			})
 		);
 	}
@@ -202,8 +239,7 @@
 			new THREE.MeshPhongMaterial({
 				map:         THREE.ImageUtils.loadTexture('images/neptunemap.jpg'),
 				bumpMap:     THREE.ImageUtils.loadTexture('images/neptunebump.jpg'),
-				bumpScale:   0.005,
-				specular:    new THREE.Color('orange')
+				bumpScale:   0.005
 			})
 		);
 	}
@@ -213,9 +249,7 @@
 			new THREE.SphereGeometry(radius, segments, segments),
 			new THREE.MeshBasicMaterial({
 				map:         THREE.ImageUtils.loadTexture('images/sunmap.jpg'),
-				bumpScale:   0.7,
-				shininess: 25,
-				specular:    new THREE.Color('red')
+				bumpScale:   0.7
 			})
 		);
 	}
@@ -224,7 +258,7 @@
 		return new THREE.Mesh(
 			new THREE.SphereGeometry(radius + 0.003, segments, segments),
 			new THREE.MeshPhongMaterial({
-				map:         THREE.ImageUtils.loadTexture('images/fair_clouds_4k.png'),
+				map: THREE.ImageUtils.loadTexture('images/fair_clouds_4k.png'),
 				transparent: true
 			})
 		);
