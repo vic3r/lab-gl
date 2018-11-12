@@ -3,7 +3,7 @@
 
 (function () {
 
-	var webglEl = document.getElementById('webgl');
+	let webglEl = document.getElementById('webgl');
 
 	if (!Detector.webgl) {
 		Detector.addGetWebGLMessage(webglEl);
@@ -34,12 +34,35 @@
 	var camera = new THREE.PerspectiveCamera(45, width / height, 0.01, 1000);
 	camera.position.z = 10.5;
 
-	var renderer = new THREE.WebGLRenderer();
+	let renderer = new THREE.WebGLRenderer();
 	renderer.setSize(width, height);
 
 	scene.add(new THREE.AmbientLight(0x333333));
 
-	var light = new THREE.DirectionalLight(0xffffff, 1);
+	// const loader = new THREE.FontLoader();
+	// const font = loader.load('fonts/helvetiker_bold.typeface.json');
+
+	// let xMid, text;
+	// const color = 0x006699;
+	// let matLite = new THREE.MeshBasicMaterial({
+	// 	color: color,
+	// 	transparent: true,
+	// 	opacity: 0.4,
+	// 	side: THREE.DoubleSide
+	// });
+	// setTimeout(()=> {
+	// 	let message = "Three.js\nSimple text.";
+	// 	let shapes = font.generateShapes( message, 100 );
+	// 	let geometry = new THREE.ShapeBufferGeometry( shapes );
+	// 	geometry.computeBoundingBox();
+	// 	xMid = - 0.5 * (geometry.boundingBox.max.x-geometry.boundingBox.min.x );
+	
+	// 	geometry.translate(xMid, 0, 0);
+	// 	text = new THREE.Mesh( geometry, matLite );
+	// 	text.position.z = -2;
+	// 	scene.add(text);
+	// 	});
+	let light = new THREE.DirectionalLight(0xffffff, 1);
 	light.position.set(-100,0,0);
 	scene.add(light);
 
@@ -47,36 +70,48 @@
 	var sun = createSun(radiusSun, segments);
 	sun.translateX(-200);
 	sun.translateY(-10);
+	sun.name = "Sun";
+	sun.callback = sunClickHandler;
 	scene.add(sun);
 
  // 'FREDDIE' MERCURY
 	var mercury = createMercury(radiusMercury, segments);
 	mercury.rotation.y = rotation;
 	mercury.translateX(-48.569);
+	mercury.name = "Mercury";
+	mercury.callback = mercuryClickHandler;
 	scene.add(mercury);
 
 	// VENUS
 	var venus = createVenus(radiusVenus, segments);
 	venus.rotation.y = rotation;
 	venus.translateX(-30.112);
+	venus.name = "Venus";
+	venus.callback = venusClickHandler;
 	scene.add(venus);
 
 	// EARTH
 	var sphere = createSphere(radius, segments);
 	sphere.rotation.y = rotation;
 	sphere.translateX(0);
+	sphere.name = "Earth";
+	sphere.callback = earthClickHandler;
 	scene.add(sphere);
 
 	// MARS
 	var mars = createMars(radiusMars, segments);
 	mars.rotation.y = rotation;
 	mars.translateX(21.87);
+	mars.name = "Mars";
+	mars.callback = marsClickHandler;
 	scene.add(mars);
 
 	// JUPITER
 	var jupiter = createJupiter(radiusJupiter, segments);
 	jupiter.rotation.y = rotation;
 	jupiter.translateX(100);
+	jupiter.name = "Jupiter";
+	jupiter.callback = jupiterClickHandler;
 	scene.add(jupiter);
 
 	// Saturn ring
@@ -99,12 +134,16 @@
 	var saturn = createSaturn(radiusSaturn, segments);
 	saturn.rotation.y = rotation;
 	saturn.translateX(149);
+	saturn.name = "Saturn";
+	saturn.callback = saturnClickHandler;
 	scene.add(saturn);
 
 	// URANUS
 	var uranus = createUranus(radiusUranus, segments);
 	uranus.rotation.y = rotation;
 	uranus.translateX(180);
+	uranus.name = "Uranus";
+	uranus.callback = uranusClickHandler;
 	scene.add(uranus);
 
 	// Uranus ring
@@ -123,6 +162,8 @@
 	var neptune = createNeptune(radiusNeptune, segments);
 	neptune.rotation.y = rotation;
 	neptune.translateX(210);
+	neptune.name = "Neptune";
+	neptune.callback = neptuneClickHandler;
 	scene.add(neptune);
 
 	// CLOUDS EARTH
@@ -134,7 +175,7 @@
 	var stars = createStars(90, 64);
 	scene.add(stars);
 
-	var controls = new THREE.TrackballControls(camera);
+	let controls = new THREE.TrackballControls(camera);
 
 	webglEl.appendChild(renderer.domElement);
 
@@ -273,5 +314,58 @@
 			})
 		);
 	}
+
+	let raycaster = new THREE.Raycaster();
+  let mouse = new THREE.Vector2();
+    function onDocumentMouseDown(event) {
+        event.preventDefault();
+ 
+        mouse.x = (event.clientX / renderer.domElement.clientWidth) * 2 - 1;
+        mouse.y =  - (event.clientY / renderer.domElement.clientHeight) * 2 + 1;
+ 
+        raycaster.setFromCamera(mouse, camera);
+ 
+        meshObjects = [sun, mercury, venus, sphere, mars, jupiter, saturn, uranus, neptune];
+				let intersects = raycaster.intersectObjects(meshObjects);
+				intersects.forEach((intersect) => {intersect.object.callback()});
+		}
+		
+		function sunClickHandler() {
+			console.log("Sun");
+		}
+
+		function mercuryClickHandler() {
+			console.log("Mercury");
+		}
+
+		function venusClickHandler() {
+			console.log("Venus");
+		}
+
+		function earthClickHandler() {
+			console.log("Earth");
+		}
+
+		function marsClickHandler() {
+			console.log("Mars");
+		}
+
+		function jupiterClickHandler() {
+			console.log("Jupiter");
+		}
+
+		function uranusClickHandler() {
+			console.log("Uranus");
+		}
+
+		function saturnClickHandler() {
+			console.log("Saturn");
+		}
+
+		function neptuneClickHandler() {
+			console.log("Neptune");
+		}
+	
+	webglEl.addEventListener('mousedown', onDocumentMouseDown, false);
 
 }());
