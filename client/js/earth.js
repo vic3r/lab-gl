@@ -309,55 +309,225 @@
 		function sunClickHandler() {
 			console.log("Sun");
 			var x = document.getElementById("planet-name");
+			var xsize = document.getElementById("tSize");
+			var xmass = document.getElementById("tMass");
+			var xgravity = document.getElementById("tGravity");
+			var xmoon = document.getElementById("tMoon");
+			var xstar = document.getElementById("tStar");
+			var xphase = document.getElementById("tPhase");
+			var xorder = document.getElementById("tSunOrder");
+			var xsundis = document.getElementById("tSunDistance");
+			var xearthdis = document.getElementById("tEarthDistance");
 			x.innerHTML = "Sol";
+			xsize.innerHTML=1;
+			xmass.innerHTML=1;
+			xgravity.innerHTML=1;
+			xmoon.innerHTML=1;
+			xstar.innerHTML=1;
+			xphase.innerHTML=1;
+			xorder.innerHTML=1;
+			xsundis.innerHTML=1;
+			xearthdis.innerHTML=1;
 		}
 
 		function mercuryClickHandler() {
 			console.log("Mercury");
 			var x = document.getElementById("planet-name");
+			var xsize = document.getElementById("tSize");
+			var xmass = document.getElementById("tMass");
+			var xgravity = document.getElementById("tGravity");
+			var xmoon = document.getElementById("tMoon");
+			var xstar = document.getElementById("tStar");
+			var xphase = document.getElementById("tPhase");
+			var xorder = document.getElementById("tSunOrder");
+			var xsundis = document.getElementById("tSunDistance");
+			var xearthdis = document.getElementById("tEarthDistance");
+			var x = document.getElementById("planet-name");
 			x.innerHTML = "Mercurio";
+			xsize.innerHTML=1;
+			xmass.innerHTML=1;
+			xgravity.innerHTML=1;
+			xmoon.innerHTML=1;
+			xstar.innerHTML=1;
+			xphase.innerHTML=1;
+			xorder.innerHTML=1;
+			xsundis.innerHTML=1;
+			xearthdis.innerHTML=1;
 		}
 
 		function venusClickHandler() {
 			console.log("Venus");
 			var x = document.getElementById("planet-name");
+			var xsize = document.getElementById("tSize");
+			var xmass = document.getElementById("tMass");
+			var xgravity = document.getElementById("tGravity");
+			var xmoon = document.getElementById("tMoon");
+			var xstar = document.getElementById("tStar");
+			var xphase = document.getElementById("tPhase");
+			var xorder = document.getElementById("tSunOrder");
+			var xsundis = document.getElementById("tSunDistance");
+			var xearthdis = document.getElementById("tEarthDistance");
+			var x = document.getElementById("planet-name");
 			x.innerHTML = "Venus";
+			xsize.innerHTML=1;
+			xmass.innerHTML=1;
+			xgravity.innerHTML=1;
+			xmoon.innerHTML=1;
+			xstar.innerHTML=1;
+			xphase.innerHTML=1;
+			xorder.innerHTML=1;
+			xsundis.innerHTML=1;
+			xearthdis.innerHTML=1;
 		}
 
 		function earthClickHandler() {
 			console.log("Earth");
 			var x = document.getElementById("planet-name");
+			var xsize = document.getElementById("tSize");
+			var xmass = document.getElementById("tMass");
+			var xgravity = document.getElementById("tGravity");
+			var xmoon = document.getElementById("tMoon");
+			var xstar = document.getElementById("tStar");
+			var xphase = document.getElementById("tPhase");
+			var xorder = document.getElementById("tSunOrder");
+			var xsundis = document.getElementById("tSunDistance");
+			var xearthdis = document.getElementById("tEarthDistance");
+			var x = document.getElementById("planet-name");
 			x.innerHTML = "Tierra";
+			xsize.innerHTML=1;
+			xmass.innerHTML=1;
+			xgravity.innerHTML=1;
+			xmoon.innerHTML=1;
+			xstar.innerHTML=1;
+			xphase.innerHTML=1;
+			xorder.innerHTML=1;
+			xsundis.innerHTML=1;
+			xearthdis.innerHTML=1;
 		}
 
 		function marsClickHandler() {
 			console.log("Mars");
 			var x = document.getElementById("planet-name");
+			var xsize = document.getElementById("tSize");
+			var xmass = document.getElementById("tMass");
+			var xgravity = document.getElementById("tGravity");
+			var xmoon = document.getElementById("tMoon");
+			var xstar = document.getElementById("tStar");
+			var xphase = document.getElementById("tPhase");
+			var xorder = document.getElementById("tSunOrder");
+			var xsundis = document.getElementById("tSunDistance");
+			var xearthdis = document.getElementById("tEarthDistance");
+			var x = document.getElementById("planet-name");
 			x.innerHTML = "Marte";
+			xsize.innerHTML=1;
+			xmass.innerHTML=1;
+			xgravity.innerHTML=1;
+			xmoon.innerHTML=1;
+			xstar.innerHTML=1;
+			xphase.innerHTML=1;
+			xorder.innerHTML=1;
+			xsundis.innerHTML=1;
+			xearthdis.innerHTML=1;
 		}
 
 		function jupiterClickHandler() {
 			console.log("Jupiter");
+			var x = document.getElementById("planet-name");
+			var xsize = document.getElementById("tSize");
+			var xmass = document.getElementById("tMass");
+			var xgravity = document.getElementById("tGravity");
+			var xmoon = document.getElementById("tMoon");
+			var xstar = document.getElementById("tStar");
+			var xphase = document.getElementById("tPhase");
+			var xorder = document.getElementById("tSunOrder");
+			var xsundis = document.getElementById("tSunDistance");
+			var xearthdis = document.getElementById("tEarthDistance");
 		  var x = document.getElementById("planet-name");
 			x.innerHTML = "Jupiter";
+			xsize.innerHTML=1;
+			xmass.innerHTML=1;
+			xgravity.innerHTML=1;
+			xmoon.innerHTML=1;
+			xstar.innerHTML=1;
+			xphase.innerHTML=1;
+			xorder.innerHTML=1;
+			xsundis.innerHTML=1;
+			xearthdis.innerHTML=1;
 		}
 
 		function uranusClickHandler() {
 			console.log("Uranus");
+			var x = document.getElementById("planet-name");
+			var xsize = document.getElementById("tSize");
+			var xmass = document.getElementById("tMass");
+			var xgravity = document.getElementById("tGravity");
+			var xmoon = document.getElementById("tMoon");
+			var xstar = document.getElementById("tStar");
+			var xphase = document.getElementById("tPhase");
+			var xorder = document.getElementById("tSunOrder");
+			var xsundis = document.getElementById("tSunDistance");
+			var xearthdis = document.getElementById("tEarthDistance");
 			var x = document.getElementById("planet-name");   // Get the element with id="demo"
 			x.innerHTML = "Urano";
+			xsize.innerHTML=1;
+			xmass.innerHTML=1;
+			xgravity.innerHTML=1;
+			xmoon.innerHTML=1;
+			xstar.innerHTML=1;
+			xphase.innerHTML=1;
+			xorder.innerHTML=1;
+			xsundis.innerHTML=1;
+			xearthdis.innerHTML=1;
 		}
 
 		function saturnClickHandler() {
 			console.log("Saturn");
+			var x = document.getElementById("planet-name");
+			var xsize = document.getElementById("tSize");
+			var xmass = document.getElementById("tMass");
+			var xgravity = document.getElementById("tGravity");
+			var xmoon = document.getElementById("tMoon");
+			var xstar = document.getElementById("tStar");
+			var xphase = document.getElementById("tPhase");
+			var xorder = document.getElementById("tSunOrder");
+			var xsundis = document.getElementById("tSunDistance");
+			var xearthdis = document.getElementById("tEarthDistance");
 			var x = document.getElementById("planet-name");   // Get the element with id="demo"
 			x.innerHTML = "Saturno";
+			xsize.innerHTML=1;
+			xmass.innerHTML=1;
+			xgravity.innerHTML=1;
+			xmoon.innerHTML=1;
+			xstar.innerHTML=1;
+			xphase.innerHTML=1;
+			xorder.innerHTML=1;
+			xsundis.innerHTML=1;
+			xearthdis.innerHTML=1;
 		}
 
 		function neptuneClickHandler() {
 			console.log("Neptune");
+			var x = document.getElementById("planet-name");
+			var xsize = document.getElementById("tSize");
+			var xmass = document.getElementById("tMass");
+			var xgravity = document.getElementById("tGravity");
+			var xmoon = document.getElementById("tMoon");
+			var xstar = document.getElementById("tStar");
+			var xphase = document.getElementById("tPhase");
+			var xorder = document.getElementById("tSunOrder");
+			var xsundis = document.getElementById("tSunDistance");
+			var xearthdis = document.getElementById("tEarthDistance");
 			var x = document.getElementById("planet-name");   // Get the element with id="demo"
 			x.innerHTML = "Neptuno";
+			xsize.innerHTML=1;
+			xmass.innerHTML=1;
+			xgravity.innerHTML=1;
+			xmoon.innerHTML=1;
+			xstar.innerHTML=1;
+			xphase.innerHTML=1;
+			xorder.innerHTML=1;
+			xsundis.innerHTML=1;
+			xearthdis.innerHTML=1;
 		}
 
 	webglEl.addEventListener('mousedown', onDocumentMouseDown, false);
