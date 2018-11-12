@@ -46,18 +46,19 @@
 	//SUN
 	var sun = createSun(radiusSun, segments);
 	sun.translateX(-200);
+	sun.translateY(-10);
 	scene.add(sun);
 
  // 'FREDDIE' MERCURY
 	var mercury = createMercury(radiusMercury, segments);
 	mercury.rotation.y = rotation;
-	mercury.translateX(-70);
+	mercury.translateX(-48.569);
 	scene.add(mercury);
 
 	// VENUS
 	var venus = createVenus(radiusVenus, segments);
 	venus.rotation.y = rotation;
-	venus.translateX(-30);
+	venus.translateX(-30.112);
 	scene.add(venus);
 
 	// EARTH
@@ -69,46 +70,59 @@
 	// MARS
 	var mars = createMars(radiusMars, segments);
 	mars.rotation.y = rotation;
-	mars.translateX(20);
+	mars.translateX(21.87);
 	scene.add(mars);
 
 	// JUPITER
 	var jupiter = createJupiter(radiusJupiter, segments);
 	jupiter.rotation.y = rotation;
-	jupiter.translateX(50);
+	jupiter.translateX(100);
 	scene.add(jupiter);
 
 	// Saturn ring
-	var saturnRing = new THREE.RingGeometry(11.5, 13.5, 24 );
+	var saturnRing = new THREE.RingGeometry(11.5, 15.5, 24 );
 	var material = new THREE.MeshBasicMaterial( {
 		side: THREE.DoubleSide,
 		map:         THREE.ImageUtils.loadTexture('images/saturnringcolor.jpg'),
-		bumpMap:     THREE.ImageUtils.loadTexture('images/saturnringpattern.jpg'),
+		bumpMap:     THREE.ImageUtils.loadTexture('images/saturnringpattern.gif'),
 		bumpScale:   0.005
 	} );
+
 	var saturnRingMesh = new THREE.Mesh( saturnRing, material );
-	saturnRingMesh.rotation.x=(1.3701);
-	saturnRingMesh.translateX(67.5);
-	saturnRingMesh.translateZ(4.5);
-	saturnRingMesh.translateY(20)
+	saturnRingMesh.rotation.x=(1.37); // angle rotation in radians
+	saturnRingMesh.translateX(142);
+	saturnRingMesh.translateZ(7);
+	saturnRingMesh.translateY(41.5);
 	scene.add( saturnRingMesh );
 
 	// SATURN
 	var saturn = createSaturn(radiusSaturn, segments);
 	saturn.rotation.y = rotation;
-	saturn.translateX(70);
+	saturn.translateX(149);
 	scene.add(saturn);
 
 	// URANUS
 	var uranus = createUranus(radiusUranus, segments);
 	uranus.rotation.y = rotation;
-	uranus.translateX(90);
+	uranus.translateX(180);
 	scene.add(uranus);
+
+	// Uranus ring
+	var uranusRing = new THREE.RingGeometry(5.3, 5.5, 24 );
+	var material = new THREE.MeshBasicMaterial( {
+		side:        THREE.DoubleSide,
+		map:         THREE.ImageUtils.loadTexture('images/uranusringcolour.jpg'),
+		bumpMap:     THREE.ImageUtils.loadTexture('images/uranusringstrans.gif'),
+	} );
+	var uranusRingMesh = new THREE.Mesh( uranusRing, material );
+	uranusRingMesh.translateX(172.7);
+	uranusRingMesh.translateZ(50);
+	scene.add(uranusRingMesh);
 
 	// NEPTUNE
 	var neptune = createNeptune(radiusNeptune, segments);
 	neptune.rotation.y = rotation;
-	neptune.translateX(100);
+	neptune.translateX(210);
 	scene.add(neptune);
 
 	// CLOUDS EARTH
@@ -149,7 +163,7 @@
 				bumpMap:     THREE.ImageUtils.loadTexture('images/elev_bump_4k.jpg'),
 				bumpScale:   0.005,
 				specularMap: THREE.ImageUtils.loadTexture('images/water_4k.png'),
-				specular:    new THREE.Color('grey')
+				// specular:    new THREE.Color('grey')
 			})
 		);
 	}
@@ -235,7 +249,7 @@
 			new THREE.SphereGeometry(radius, segments, segments),
 			new THREE.MeshBasicMaterial({
 				map:         THREE.ImageUtils.loadTexture('images/sunmap.jpg'),
-				bumpScale:   0.7,
+				bumpScale:   0.7
 			})
 		);
 	}
