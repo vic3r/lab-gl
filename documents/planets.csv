@@ -1,0 +1,10 @@
+﻿Planeta,diameter (km),size*,mass*,gravity*,# of moons,star type,phase,order from sun,distance from sun,distance from earth (millions of km)
+sol,1391000,109,333054,28,0,gas,,,0,148098
+mercurio,4879,0.4,0.06,0.38,0,terristrial,6.19,1,59529,136263
+venus,12104,0.948217783,0.82,0.9,0,terristrial,93.41,2,107986,45592
+tierra,12765,1,1,1,1,terristrial,,3,148098,0
+marte,6792,0.532079906,0.11,0.38,2,terristrial,27.26,4,209968,129396
+jupiter,142984,11.20125343,317.8,2.53,5,gas,3.15,5,802465,947137
+saturno,120536,9.442694869,95.16,1.06,62,gas,12.91,6,1505276,1603417
+neptuno,51118,4.004543674,14.54,0.89,27,gas,44.5,7,2972180,2972180
+urano,49528,3.879984332,17.5,1.14,14,gas,31.76,8,4478879,4415849
