@@ -3,8 +3,8 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<title>Threejs Solar System</title>
-	<script src="jquery-3.3.1.min.js"></script>
 	<style>
 		body { margin: 0; overflow: hidden; background-color: #000; }
 		.tm  { position: absolute; top: 10px; right: 10px; }
@@ -54,8 +54,35 @@
 			<p id="texto"><b>Orden desde sol: </b><span id="tSunOrder"></span></p>
 			<p id="texto"><b>Distancia desde el sol: </b><span id="tSunDistance"></span>km</p>
 			<p id="texto"><b>Distancia desde la tierra: </b><span id="tEarthDistance"></span>km</p>
+			<button type="button" class="btn btn-primary btn-lg" onclick="callREST()"> Info </button>
 		</div>
 	</header>
+<script>
+		function callREST() {
+				var xhttp = new XMLHttpRequest();
+				xhttp.onreadystatechange = function() {
+						if (this.readyState == 4 && this.status == 200) {
+								console.log(JSON.parse(this.responseText));
+								let response = JSON.parse(this.responseText);
+								console.log(response);
+								document.getElementById("tDiameter").innerHTML= response.size;
+								document.getElementById("tSize").innerHTML= response.size;
+								document.getElementById("tMass").innerHTML= response.mass;
+								document.getElementById("tGravity").innerHTML= response.gravity;
+								document.getElementById("tMoon").innerHTML= response.moons;
+								document.getElementById("tStar").innerHTML= response.star_type;
+								document.getElementById("tPhase").innerHTML= response.phase;
+								document.getElementById("tSunOrder").innerHTML= response.order;
+								document.getElementById("tSunDistance").innerHTML= response.distance_sun;
+								document.getElementById("tEarthDistance").innerHTML= response.distance_earth;
+								document.getElementById("planet-name").innerHTML= response.name;
+						}
+				};
+				let content = document.getElementById("planet-name").textContent;
+				xhttp.open("GET", "http://localhost:8000/planet/"+content, true);
+				xhttp.send();
+				}
+  </script>
 	<script src="js/three.min.js"></script>
 	<script src="js/Detector.js"></script>
 	<script src="js/TrackballControls.js"></script>
